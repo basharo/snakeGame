@@ -1,5 +1,3 @@
-package sample;
-
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
@@ -84,8 +82,8 @@ public class GameLoop extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        AnimationTimer timer;
+    public void start(final Stage primaryStage) throws Exception {
+        final AnimationTimer timer;
 
         //primaryStage.setWidth(1500);
         //primaryStage.setHeight(700);
@@ -103,29 +101,29 @@ public class GameLoop extends Application {
         
 
         //TODO NEU - Background stuff
-        imgSource = new Image("media/grassTile.png");
-        backgroundImage = new BackgroundImage(imgSource, BackgroundRepeat.REPEAT.REPEAT, BackgroundRepeat.REPEAT.REPEAT,
-                BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        backgroundView = new Background(backgroundImage);
-        backgroundPane.setBackground(backgroundView);
+        //imgSource = new Image("../media/image/grassTile.png");
+        //backgroundImage = new BackgroundImage(imgSource, BackgroundRepeat.REPEAT.REPEAT, BackgroundRepeat.REPEAT.REPEAT,
+       //         BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        //backgroundView = new Background(backgroundImage);
+        //backgroundPane.setBackground(backgroundView);
         //TODO END Background
 
 
-        int offset = 21; //TODO Variable Namen anpassen
-        Gameboard gameboard = new Gameboard(); // TODO NEW
-        Control control = new Control();
-        Snake snake = new Snake(root, primaryStage); //erstellt neues Snake Listen Objekt und getChilded es
-        GameObject food = new GameObject();
-        Score score = new Score(root);
+        final int offset = 21; //TODO Variable Namen anpassen
+        final Gameboard gameboard = new Gameboard(); // TODO NEW
+        final Control control = new Control();
+        final Snake snake = new Snake(root, primaryStage); //erstellt neues Snake Listen Objekt und getChilded es
+        final GameObject food = new GameObject();
+        final Score score = new Score(root);
         food.setFood(root, primaryStage);//setzt ein neues Food random ab
-        Scene scene = new Scene(backgroundPane, primaryStage.getWidth(), primaryStage.getHeight(), Color.DARKGREEN);
+        final Scene scene = new Scene(backgroundPane, primaryStage.getWidth(), primaryStage.getHeight(), Color.DARKGREEN);
         backgroundPane.getChildren().add(root); //TODO NEU Background - root (Group) zu backgroundPane als Child added
 
         Rectangle blackrect = new Rectangle();  //Schwarzer Block der für eine Szenentransition missbraucht wird
         blackrect.setFill(Color.BLACK);
         blackrect.setHeight(primaryStage.getHeight());
         blackrect.setWidth(primaryStage.getWidth());
-        FadeTransition fadeblacktotransparent = new FadeTransition(Duration.millis(700), blackrect);
+        final FadeTransition fadeblacktotransparent = new FadeTransition(Duration.millis(700), blackrect);
         fadeblacktotransparent.setFromValue(1.0);
         fadeblacktotransparent.setToValue(0.0);
         root.getChildren().add(blackrect);
@@ -140,9 +138,8 @@ public class GameLoop extends Application {
         primaryStage.setScene(intro);
         primaryStage.setTitle("Rainbow Snake");
         
-        gameboard.setStartInfo(root, primaryStage); //PM: Start Info 
-        
-        
+        gameboard.setStartInfo(root, primaryStage); //PM: Start Info
+
         
         primaryStage.show();
         splashPlayer.play();

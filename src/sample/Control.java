@@ -1,5 +1,3 @@
-package sample;
-
 import javafx.scene.Group;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;

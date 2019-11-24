@@ -1,5 +1,3 @@
-package sample;
-
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
