@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 package sample;
 
-=======
->>>>>>> origin/master
 import javafx.scene.Group;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;

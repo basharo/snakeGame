@@ -1,16 +1,11 @@
-<<<<<<< HEAD
+
 package sample;
 
-=======
->>>>>>> origin/master
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.event.EventHandler;
-<<<<<<< HEAD
-=======
 import javafx.geometry.Rectangle2D;
->>>>>>> origin/master
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -20,10 +15,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-<<<<<<< HEAD
-=======
 import javafx.stage.Screen;
->>>>>>> origin/master
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.util.Duration;
@@ -48,14 +40,15 @@ public class GameLoop extends Application {
     static File deathsoundFile = new File("src/media/sound/death1.mp3");
     static Media deathsoundMedia = new Media(deathsoundFile.toURI().toString());
     static MediaPlayer deathsoundPlayer = new MediaPlayer(deathsoundMedia);
-    Group root = new Group();
-    Pane backgroundPane = new Pane(); //TODO NEU für Background
-    Group splashscreen = new Group();
-    //TODO NEU - Background stuff
-    Image imgSource;
-    BackgroundImage backgroundImage;
-    Background backgroundView;
+    private Group root = new Group();
+    private Pane backgroundPane = new Pane(); //TODO NEU für Background
+    private Group splashscreen = new Group();
+    private Image imgSource;
+    private BackgroundImage backgroundImage;
+    private Background backgroundView;
     private long lastUpdate = 0; //für Geschwindigkeitssteuerung
+    private static final int SPLASH_WIDTH = 1000;
+    private static final int SPLASH_HEIGHT = 500;
 
     public static void restartIngamemusic() { //Startet Ingame Musik von vorne
         ingamemusicPlayer.seek(Duration.ZERO);
@@ -93,34 +86,7 @@ public class GameLoop extends Application {
 
 
     @Override
-<<<<<<< HEAD
-    public void start(Stage primaryStage) throws Exception {
-        AnimationTimer timer;
 
-        primaryStage.setWidth(1500);
-        primaryStage.setHeight(700);
-
-        primaryStage.setMinHeight(50);
-        primaryStage.setMinWidth(50);
-
-        //TODO NEU - Background stuff
-        imgSource = new Image("media/grassTile.png");
-        backgroundImage = new BackgroundImage(imgSource, BackgroundRepeat.REPEAT.REPEAT, BackgroundRepeat.REPEAT.REPEAT,
-                BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        backgroundView = new Background(backgroundImage);
-        backgroundPane.setBackground(backgroundView);
-        //TODO END Background
-
-
-        int offset = 21; //TODO Variable Namen anpassen
-        Gameboard gameboard = new Gameboard(); // TODO NEW
-        Control control = new Control();
-        Snake snake = new Snake(root, primaryStage); //erstellt neues Snake Listen Objekt und getChilded es
-        GameObject food = new GameObject();
-        Score score = new Score(root);
-        food.setFood(root, primaryStage);//setzt ein neues Food random ab
-        Scene scene = new Scene(backgroundPane, primaryStage.getWidth(), primaryStage.getHeight(), Color.DARKGREEN);
-=======
     public void start(final Stage primaryStage) throws Exception {
         final AnimationTimer timer;
 
@@ -137,16 +103,16 @@ public class GameLoop extends Application {
         primaryStage.setY(bounds.getMinY());
         primaryStage.setWidth(bounds.getWidth());
         primaryStage.setHeight(bounds.getHeight());
+       
         
 
         //TODO NEU - Background stuff
-        //imgSource = new Image("../media/image/grassTile.png");
-        //backgroundImage = new BackgroundImage(imgSource, BackgroundRepeat.REPEAT.REPEAT, BackgroundRepeat.REPEAT.REPEAT,
-       //         BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-        //backgroundView = new Background(backgroundImage);
-        //backgroundPane.setBackground(backgroundView);
+        imgSource = new Image("/media/image/grassTile.png");
+        backgroundImage = new BackgroundImage(imgSource, BackgroundRepeat.REPEAT.REPEAT, BackgroundRepeat.REPEAT.REPEAT,
+                BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+        backgroundView = new Background(backgroundImage);
+        backgroundPane.setBackground(backgroundView);
         //TODO END Background
-
 
         final int offset = 21; //TODO Variable Namen anpassen
         final Gameboard gameboard = new Gameboard(); // TODO NEW
@@ -156,38 +122,33 @@ public class GameLoop extends Application {
         final Score score = new Score(root);
         food.setFood(root, primaryStage);//setzt ein neues Food random ab
         final Scene scene = new Scene(backgroundPane, primaryStage.getWidth(), primaryStage.getHeight(), Color.DARKGREEN);
->>>>>>> origin/master
+       
         backgroundPane.getChildren().add(root); //TODO NEU Background - root (Group) zu backgroundPane als Child added
 
         Rectangle blackrect = new Rectangle();  //Schwarzer Block der für eine Szenentransition missbraucht wird
         blackrect.setFill(Color.BLACK);
         blackrect.setHeight(primaryStage.getHeight());
         blackrect.setWidth(primaryStage.getWidth());
-<<<<<<< HEAD
-        FadeTransition fadeblacktotransparent = new FadeTransition(Duration.millis(700), blackrect);
-=======
         final FadeTransition fadeblacktotransparent = new FadeTransition(Duration.millis(700), blackrect);
->>>>>>> origin/master
+
         fadeblacktotransparent.setFromValue(1.0);
         fadeblacktotransparent.setToValue(0.0);
         root.getChildren().add(blackrect);
 
         Scene intro = new Scene(splashscreen, primaryStage.getWidth(), primaryStage.getHeight());
         splashscreen.getChildren().add(splashView);
-        splashView.setFitHeight(500);
-        splashView.setFitWidth(1000);
+        splashView.setFitHeight(SPLASH_HEIGHT);
+        splashView.setFitWidth(SPLASH_WIDTH);
         intro.setFill(Color.BLACK);
-        splashView.setX(400);
-        splashView.setY(100);
+        splashView.setX(((primaryStage.getWidth()+(primaryStage.getHeight()/2))- SPLASH_WIDTH)/2);
+        splashView.setY((primaryStage.getHeight() - SPLASH_HEIGHT)/2);
         primaryStage.setScene(intro);
         primaryStage.setTitle("Rainbow Snake");
-<<<<<<< HEAD
-=======
+
         
         gameboard.setStartInfo(root, primaryStage); //PM: Start Info
 
         
->>>>>>> origin/master
         primaryStage.show();
         splashPlayer.play();
 

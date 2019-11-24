@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 package sample;
 
-=======
->>>>>>> origin/master
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
