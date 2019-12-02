@@ -155,6 +155,12 @@ fabric.properties
 # SonarQube Plugin
 .idea/**/sonarIssues.xml
 
+# temp Files
+src/sample/log4j.properties
+pom.xml
+
+
+
 # Markdown Navigator plugin
 .idea/**/markdown-navigator.xml
 .idea/**/markdown-navigator/
@@ -185,10 +191,13 @@ fabric.properties
 hs_err_pid*
 
 # End of https://www.gitignore.io/api/java,eclipse,intellij
-<<<<<<< HEAD
-=======
+
 /out/
 .idea/vcs.xml
 .idea/modules.xml
 .idea/misc.xml
->>>>>>> origin/master
+
+/resources/apache-log4j-2.12.1-bin/LICENSE.txt
+/resources/apache-log4j-2.12.1-bin/NOTICE.txt
+/resources/apache-log4j-2.12.1-bin/RELEASE-NOTES.md
+/target/

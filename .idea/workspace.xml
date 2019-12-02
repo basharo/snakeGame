@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e987d22-1d0f-430d-b08c-c24dd031ca3c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="7e987d22-1d0f-430d-b08c-c24dd031ca3c" name="Default Changelist" comment="some Refactoring, Logging" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="Units" />
+                <branch-info repo="$PROJECT_DIR$" source="wattar" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/wattar" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="wattar" />
@@ -21,8 +47,34 @@
   <component name="ProjectId" id="1TnhG83bKf8eVoo6qIpDk4qljEr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path" value="C:\Users\wattar\Downloads\snake\snake\Test" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SONARLINT_ISSUES_SPLIT_PROPORTION" value="0.89295775" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="sample" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\wattar\Downloads\snake\snake\src" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -42,7 +94,7 @@
       <module name="snake" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="Test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -62,7 +114,7 @@
       <module name="snake" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sample.*" />
+          <option name="PATTERN" value="Test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -73,12 +125,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SnakeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="snake" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Test" />
+      <option name="MAIN_CLASS_NAME" value="Test.SnakeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.GameLoop" />
+      <item itemvalue="JUnit.All in snake" />
+      <item itemvalue="JUnit.GameLoopTest" />
+      <item itemvalue="JUnit.SnakeTest" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.GameLoop" />
-        <item itemvalue="JUnit.GameLoopTest" />
         <item itemvalue="JUnit.All in snake" />
-        <item itemvalue="Application.GameLoop" />
+        <item itemvalue="JUnit.GameLoopTest" />
+        <item itemvalue="JUnit.SnakeTest" />
         <item itemvalue="Application.GameLoop" />
       </list>
     </recent_temporary>
@@ -94,11 +167,42 @@
       <option name="presentableId" value="Default" />
       <updated>1574101668093</updated>
       <workItem from="1574101670007" duration="1691000" />
+      <workItem from="1574628454689" duration="1224000" />
+      <workItem from="1574700439315" duration="2477000" />
+      <workItem from="1574706109022" duration="4569000" />
+      <workItem from="1574710746915" duration="820000" />
+      <workItem from="1575111251987" duration="2278000" />
+      <workItem from="1575113580984" duration="1054000" />
     </task>
+    <task id="LOCAL-00001" summary="Refactoring">
+      <created>1574704545701</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574704545701</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Refactoring">
+      <created>1574704562881</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574704562881</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -113,31 +217,34 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="undo falsch code" />
+    <MESSAGE value="Temporär felder löschen" />
+    <MESSAGE value="Refactoring" />
+    <MESSAGE value="Merge branch 'Units' of https://github.com/basharo/snakeGame&#10;&#10; Conflicts:&#10;&#9;.gitignore&#10;&#9;src/sample/Snake.java" />
+    <MESSAGE value="Merge branch 'Units' , some Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'Units' , some Refactoring" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/sample/Snake.java</url>
-          <line>12</line>
+          <line>11</line>
           <properties field="frameDelay" class="sample.Snake" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/sample/GameLoop.java</url>
           <line>43</line>
-          <properties field="imgSource" class="sample.GameLoop" />
+          <properties field="backgroundPane" class="sample.GameLoop" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/sample/GameObject.java</url>
           <line>15</line>
-          <properties field="fbound" class="sample.GameObject" />
+          <properties field="redPart" class="sample.GameObject" />
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sample/Snake.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/sample/GameLoop.java</url>

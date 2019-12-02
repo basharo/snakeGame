@@ -1,5 +1,4 @@
-
-package sample;
+package sample.src.sample;
 
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
@@ -41,43 +40,50 @@ public class GameLoop extends Application {
 	private static Media deathsoundMedia = new Media(deathsoundFile.toURI().toString());
 	private static MediaPlayer deathsoundPlayer = new MediaPlayer(deathsoundMedia);
 	private Group root = new Group();
-	private Pane backgroundPane = new Pane(); // TODO NEU für Background
+	private Pane backgroundPane = new Pane(); 
 	private Group splashscreen = new Group();
 	private Image imgSource;
 	private BackgroundImage backgroundImage;
 	private Background backgroundView;
-	private long lastUpdate = 0; // für Geschwindigkeitssteuerung
+	private long lastUpdate = 0;
 	private static final int SPLASH_WIDTH = 1000;
 	private static final int SPLASH_HEIGHT = 500;
+
+	private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(GameLoop.class);
 
 	public static void restartIngamemusic() { // Startet Ingame Musik von vorne
 		ingamemusicPlayer.seek(Duration.ZERO);
 		ingamemusicPlayer.play();
+		logger.info("restart ingame");
 	}
 
 	public static void stopIngamemusic() {
 		ingamemusicPlayer.stop();
+		logger.info("stop ingame");
 	}
 
 	public static void restartGameovermusic() {
 		gameovermusicPlayer.seek(Duration.ZERO);
 		gameovermusicPlayer.play();
+		logger.info("Game over");
 	}
 
 	public static void stopGameovermusic() {
 		gameovermusicPlayer.stop();
+		logger.info("stop game");
 	}
 
 	public static void playEatsound() {
 		eatsoundPlayer.seek(Duration.ZERO);
 		eatsoundPlayer.play();
+		logger.info("collision - play sound");
 	}
 
 	public static void playDeathsound() {
 		deathsoundPlayer.seek(Duration.ZERO);
 		deathsoundPlayer.play();
 	}
-	// TODO END Background
+
 
 	public static void main(String[] args) {
 		launch(args);
@@ -88,8 +94,8 @@ public class GameLoop extends Application {
 
 	public void start(final Stage primaryStage) throws Exception {
 		final AnimationTimer timer;
-		final int offset = 21; // TODO Variable Namen anpassen
-		final Gameboard gameboard = new Gameboard(); // TODO NEW
+		final int offset = 21; 
+		final Gameboard gameboard; 
 		final Control control = new Control();
 		final Snake snake;
 		final GameObject food = new GameObject();
@@ -99,23 +105,29 @@ public class GameLoop extends Application {
 		final Scene scene = new Scene(backgroundPane, primaryStage.getWidth(), primaryStage.getHeight(),
 				Color.DARKGREEN);
 
+		logger.debug("Start of setup");
+		logger.info("Start of setup");
+
 		Screen screen = Screen.getPrimary();
 		Rectangle2D bounds = screen.getVisualBounds();
 		primaryStage.setX(bounds.getMinX());
 		primaryStage.setY(bounds.getMinY());
 		primaryStage.setWidth(bounds.getWidth());
 		primaryStage.setHeight(bounds.getHeight());
+		logger.info("primary Stage width: " + bounds.getWidth());
+		logger.info("primary Stage heigth: " + bounds.getHeight());
 
 		/** Code moved to setBackground() */
 
 		setBackground();
-		snake = new Snake(root, primaryStage); // erstellt neues Snake Listen Objekt und getChilded es
-		food.setFood(root, primaryStage);// setzt ein neues Food random ab
+		
+		gameboard = new Gameboard(root, primaryStage); 
+		snake = new Snake(root, primaryStage); 
+		food.setFood(root, primaryStage);
 
 		fadeblacktotransparent = setFadeTransition(primaryStage);
 
 		/** Code moved to setFadeTransition() */
-
 
 		Scene intro = setSplashScreen(primaryStage);
 
@@ -125,22 +137,20 @@ public class GameLoop extends Application {
 
 		primaryStage.setTitle("Rainbow Snake");
 
-		gameboard.setStartInfo(root, primaryStage); // PM: Start Info
+		gameboard.setStartInfo(); 
 
 		primaryStage.show();
+		logger.info("show primary Stage");
 		splashPlayer.play();
+		  logger.info("splash player play");
 
 		ingamemusicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-		/*
-		 * inp.setOnEndOfMedia(new Runnable() {
-		 * 
-		 * @Override public void run() { inp.seek(Duration.ZERO); } });
-		 */
-		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {// Keyeventhandler fragt ab obs ein Keyevent gibt
+		
+		scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent keyEvent) {
-				control.keyHandler(keyEvent, snake, root, food, score, primaryStage);// control nimmt Keyevent und
-																						// schaut speziell nach WASD
+				control.keyHandler(keyEvent, snake, root, food, score, primaryStage);
+																						
 
 			}
 		});
@@ -175,7 +185,8 @@ public class GameLoop extends Application {
 			public void run() {
 				primaryStage.setScene(scene);
 				fadeblacktotransparent.play();
-				timer.start(); // Animationtimer startet nun erst nach dem Fade out des Hundevideos
+				logger.info("start animation timer after intro video");
+				timer.start(); 
 				restartIngamemusic();
 			}
 		});
@@ -190,8 +201,7 @@ public class GameLoop extends Application {
 		backgroundView = new Background(backgroundImage);
 		backgroundPane.setBackground(backgroundView);
 
-		backgroundPane.getChildren().add(root); // TODO NEU Background - root (Group) zu backgroundPane als Child added
-
+		backgroundPane.getChildren().add(root); 
 	}
 
 	private Scene setSplashScreen(Stage primaryStage) {
@@ -210,7 +220,7 @@ public class GameLoop extends Application {
 
 	private FadeTransition setFadeTransition(Stage primaryStage) {
 
-		Rectangle blackrect = new Rectangle(); // Schwarzer Block der für eine Szenentransition missbraucht wird
+		Rectangle blackrect = new Rectangle(); 
 		blackrect.setFill(Color.BLACK);
 		blackrect.setHeight(primaryStage.getHeight());
 		blackrect.setWidth(primaryStage.getWidth());
