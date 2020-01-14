@@ -15,3 +15,7 @@ Code refactoring, minor game changes, and rudimentary JUnit tests
 
 ## Project Group Members
 Alice Ensor, Bernhard Hartmann, Pavol Malo and Mohammad Bashar Wattar
+
+[![Build Status](https://travis-ci.org/palomalo/snakeGame.svg?branch=master)](https://travis-ci.org/palomalo/snakeGame)
+
+![Docker Build Status](https://img.shields.io/docker/build/palomalo/snake)

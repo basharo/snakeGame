@@ -9,6 +9,15 @@
 
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <properties>
+        <docker.image.prefix>palomalo</docker.image.prefix>
+        <maven.deploy.skip>true</maven.deploy.skip>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- GitHub OAuth token & server -->
+        <github.global.server>github</github.global.server>
+        <github.global.oauth2Token>bbcc00a333ed1a79f971d3f9904f7ef5faad25a3</github.global.oauth2Token>
+    </properties>
     <build>
         <plugins>
             <plugin>
@@ -44,6 +53,29 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+                 
+                 <!-- spotify's dockerfile-maven-plugin -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.9</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <repository>${docker.image.prefix}/${project.artifactId}</repository>
+                    <!--<serverId>index.docker.io</serverId>-->
+                    <!--<registryUrl>https://index.docker.io:443/v1/</registryUrl>-->
+        </configuration>
+    </plugin>
+    <!-- maven-dependency-plugin useful for creating docker image -->
         </plugins>
     </build>
     <dependencies>
@@ -71,4 +103,24 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+         
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <email>malo.pavol@gmail.com</email>
+            <name>Pavol Malo</name>
+            <url>https://github.com/palomalo</url>
+            <id>palomalo</id>
+        </developer>
+    </developers>
+    <organization>
+        <name>FH Campus Wien</name>
+        <url> https://www.fh-campuswien.ac.at/</url>
+    </organization>
 </project>

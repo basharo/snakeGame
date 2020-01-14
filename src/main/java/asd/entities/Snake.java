@@ -87,7 +87,7 @@ public class Snake {
     }
 
 
-    public void collision(FoodObject food, Group group, Bounds foodBound, Score score, Control control, Stage stage, Gameboard gameboard) { //gameobject sind obstacles so wie Food, Boundarys f�r Collisions
+    public void collision(FoodObject food, Group group, Bounds foodBound, Score score, Control control, Stage stage, Gameboard gameboard) { //gameobject sind obstacles so wie Food, Boundarys fuer Collisions
         Bounds headBox = head.getBoundsInParent();
 
 

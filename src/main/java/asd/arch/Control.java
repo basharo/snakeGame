@@ -41,10 +41,10 @@ public class Control {
 
         switch (keyEvent.getCode()) {
             case W:
-                if (goDown)          //dass nicht nach oben gelenkt werden kann während sich nach unten bewegt
+                if (goDown)          //dass nicht nach oben gelenkt werden kann waehrend sich nach unten bewegt
                     break;
                 goUp = true;
-                goDown = false;     //"false" Fälle: dass man sich nicht schräg bewegen kann
+                goDown = false;     //"false" Faelle: dass man sich nicht schraeg bewegen kann
                 goRight = false;
                 goLeft = false;
                 break;
