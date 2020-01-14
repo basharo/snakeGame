@@ -16,8 +16,7 @@
 <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 <!-- GitHub OAuth token & server -->
 <github.global.server>github</github.global.server>
-<github.global.oauth2Token>bbcc00a333ed1a79f971d3f9904f7ef5faad25a3</github.glob
-al.oauth2Token>
+<github.global.oauth2Token>bbcc00a333ed1a79f971d3f9904f7ef5faad25a3</github.global.oauth2Token>
          </properties>
     <build>
         <plugins>
