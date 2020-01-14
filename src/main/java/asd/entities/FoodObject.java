@@ -25,7 +25,7 @@ public class FoodObject {
     	rand = new Random();
     }
 
-    double[] getColor() { // returned ein double Array mit den Farben für den Schwanz der Schlange, wird nacher von eat aufgerufen
+    double[] getColor() { // returned ein double Array mit den Farben fuer den Schwanz der Schlange, wird nacher von eat aufgerufen
         double[] colors = new double[3];
         colors[0] = redPart;
         colors[1] = greenPart;
@@ -38,7 +38,7 @@ public class FoodObject {
     public void setFood() {
         groupObject.getChildren().remove(food);//um vorheriges Food verschwinden zu lassen
 
-        food.setFill(Color.color(redPart = rand.nextDouble(), greenPart = rand.nextDouble(), bluePart = rand.nextDouble())); // hier werden zufällige Farben für das Food (und damit auch den Tail) übergeben
+        food.setFill(Color.color(redPart = rand.nextDouble(), greenPart = rand.nextDouble(), bluePart = rand.nextDouble())); // hier werden zufaellige Farben fuer das Food (und damit auch den Tail) uebergeben
         food.relocate(rand.nextInt((int) stageObject.getWidth() - 50), rand.nextInt((int) stageObject.getHeight() - 50)); // Random Location mit Abstand vom Rand jeweils 40
         groupObject.getChildren().add(food);
         fbound = food.getBoundsInParent();
