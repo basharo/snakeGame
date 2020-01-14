@@ -1,19 +1,15 @@
-package sample.src.sample;
+package asd.messages;
+
+import asd.entities.Gameboard;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
-import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-
 public class WallMessage implements IMessage{
 	
 	 private Random rand = new Random();
 	 private Collection<String> touchWall = initTouchWall(); //Maybe this should go back to GameBoard
-	 
-
 
     private Collection<String> initTouchWall() {
     	touchWall = new ArrayList<String>();
@@ -35,9 +31,10 @@ public class WallMessage implements IMessage{
 		 return (String) touchWall.toArray()[rand.nextInt(9)];
 	 }
 
-
-
-	
+    @Override
+    public Gameboard.MessageType getMsgType() {
+        return Gameboard.MessageType.RANINTOWALL;
+    }
 
 
 }

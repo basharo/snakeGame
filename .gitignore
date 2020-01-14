@@ -157,14 +157,22 @@ fabric.properties
 
 # temp Files
 src/sample/log4j.properties
-pom.xml
+
 
 
 
 # Markdown Navigator plugin
 .idea/**/markdown-navigator.xml
 .idea/**/markdown-navigator/
-
+.idea/compiler.xml
+.idea/misc.xml
+.idea/workspace.xml
+out/production/snake/media/grassTile.png
+out/production/snake/media/sound/death1.mp3
+out/production/snake/media/sound/eat2.mp3
+out/production/snake/media/sound/music/gameover1.mp3
+ out/production/snake/media/sound/music/ingame2.mp3
+ out/production/snake/media/splash.mp4
 ### Java ###
 # Compiled class file
 *.class
@@ -201,3 +209,8 @@ hs_err_pid*
 /resources/apache-log4j-2.12.1-bin/NOTICE.txt
 /resources/apache-log4j-2.12.1-bin/RELEASE-NOTES.md
 /target/
+
+/.idea/
+/out/
+/out/
+

@@ -1,7 +1,8 @@
-package sample.src.sample;
+package asd.entities;
 
-import java.util.Random;
-
+import asd.messages.IMessage;
+import asd.messages.MessageFactory;
+import asd.messages.MessageTypeNotSupportedException;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
@@ -16,17 +17,17 @@ public class Gameboard {
 	private Stage stage;
 	private MessageFactory messageFactory= new MessageFactory();
 
-    enum MessageType 
-    { 
-        EATENTAIL, RANINTOWALL;
-    } 
+    public enum MessageType
+    {
+        EATENTAIL, RANINTOWALL, NonExistant;
+    }
 
     public Gameboard(Group group, Stage stage) {
     	this.group = group;
     	this.stage = stage;   	
     }
 
-    void setStartInfo() {
+    public void setStartInfo() {
     	Label startInfo = new Label("\nTo move press w/a/s/d. \nDon't hit the walls!");
     	startInfo.setFont(new Font("Calibri",50));
     	startInfo.setTextFill(Color.BLACK);
@@ -35,14 +36,24 @@ public class Gameboard {
     }
 
     public void setDeathTouchWall(Score score) {
-    	IMessage wallMessage = messageFactory.getMessage(MessageType.RANINTOWALL);
-    	setMessageLabel(score, wallMessage);
+        IMessage wallMessage = null;
+        try {
+            wallMessage = messageFactory.getMessage(MessageType.RANINTOWALL);
+        } catch (MessageTypeNotSupportedException e) {
+            e.printStackTrace();
+        }
+        setMessageLabel(score, wallMessage);
 
     }
 
     public void setDeathTouchTail(Score score) {
-    	IMessage eatenTailMessage = messageFactory.getMessage(MessageType.EATENTAIL);
-    	setMessageLabel(score, eatenTailMessage);
+        IMessage eatenTailMessage = null;
+        try {
+            eatenTailMessage = messageFactory.getMessage(MessageType.EATENTAIL);
+        } catch (MessageTypeNotSupportedException e) {
+            e.printStackTrace();
+        }
+        setMessageLabel(score, eatenTailMessage);
   
     }
     
